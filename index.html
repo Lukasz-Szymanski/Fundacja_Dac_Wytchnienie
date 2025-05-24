@@ -30,7 +30,7 @@
         height: 2px;
         bottom: -2px;
         left: 0;
-        background-color: #2563eb;
+        background-color: #4a90e2;
         transition: width 0.3s ease;
       }
 
@@ -51,7 +51,7 @@
       /* Focus styles for better accessibility */
       a:focus,
       button:focus {
-        outline: 2px solid #2563eb;
+        outline: 2px solid #4a90e2;
         outline-offset: 2px;
       }
 
@@ -61,16 +61,67 @@
           transform: rotate(360deg);
         }
       }
+
+      /* Custom color classes */
+      .bg-primary {
+        background-color: #377d71;
+      }
+      .bg-secondary {
+        background-color: #f4d35e;
+      }
+      .bg-surface {
+        background-color: #f1f1f1;
+      }
+      .bg-accent {
+        background-color: #4abdac;
+      }
+      .text-primary {
+        color: #377d71;
+      }
+      .text-secondary {
+        color: #f4d35e;
+      }
+      .text-neutral {
+        color: #2b2b2b;
+      }
+      .text-accent {
+        color: #4abdac;
+      }
+      .hover-primary:hover {
+        color: #377d71;
+      }
+      .hover-secondary:hover {
+        color: #f4d35e;
+      }
+      .hover-accent:hover {
+        color: #4abdac;
+      }
+
+      /* Header styling */
+      .header-blur {
+        backdrop-filter: blur(8px);
+        background-color: #ffffff;
+      }
+
+      /* Card styling */
+      .card {
+        background-color: #f1f1f1;
+        transition: all 0.3s ease;
+      }
+      .card:hover {
+        background-color: #4abdac;
+        color: white;
+      }
     </style>
     <title>Fundacja Dać Wytchnienie</title>
   </head>
-  <body class="bg-gray-50">
-    <header class="bg-white shadow-md fixed w-full top-0 z-50">
+  <body class="bg-white min-h-screen">
+    <header class="fixed w-full top-0 z-50 header-blur">
       <nav class="container mx-auto px-4 py-4">
         <!-- Mobile menu button -->
         <button
           id="mobile-menu-button"
-          class="md:hidden w-full text-left px-4 py-2 text-gray-700 hover:text-blue-600 transition-colors"
+          class="md:hidden w-full text-left px-4 py-2 text-neutral hover:text-primary transition-colors"
           aria-label="Menu"
           aria-expanded="false"
           aria-controls="nav-menu">
@@ -86,7 +137,7 @@
           <li>
             <a
               href="#home"
-              class="nav-link block py-2 text-gray-700 hover:text-blue-600 transition-colors"
+              class="nav-link block py-2 text-neutral hover:text-primary transition-colors"
               aria-current="page"
               >Strona główna</a
             >
@@ -94,35 +145,35 @@
           <li>
             <a
               href="#o-nas"
-              class="nav-link block py-2 text-gray-700 hover:text-blue-600 transition-colors"
+              class="nav-link block py-2 text-neutral hover:text-primary transition-colors"
               >O nas</a
             >
           </li>
           <li>
             <a
               href="#nasza-misja"
-              class="nav-link block py-2 text-gray-700 hover:text-blue-600 transition-colors"
+              class="nav-link block py-2 text-neutral hover:text-primary transition-colors"
               >Nasza misja</a
             >
           </li>
           <li>
             <a
               href="#wolontariat"
-              class="nav-link block py-2 text-gray-700 hover:text-blue-600 transition-colors"
+              class="nav-link block py-2 text-neutral hover:text-primary transition-colors"
               >Zostań wolontariuszem</a
             >
           </li>
           <li>
             <a
               href="#dla-opiekunow"
-              class="nav-link block py-2 text-gray-700 hover:text-blue-600 transition-colors"
+              class="nav-link block py-2 text-neutral hover:text-primary transition-colors"
               >Dla opiekunów</a
             >
           </li>
           <li>
             <a
               href="#kontakt"
-              class="nav-link block py-2 text-gray-700 hover:text-blue-600 transition-colors"
+              class="nav-link block py-2 text-neutral hover:text-primary transition-colors"
               >Kontakt</a
             >
           </li>
@@ -140,11 +191,12 @@
     <template id="home-template">
       <section class="py-8 md:py-16 px-4">
         <div class="container mx-auto">
-          <h1 class="text-3xl md:text-4xl font-bold mb-6 md:mb-8 text-center">
+          <h1
+            class="text-3xl md:text-4xl font-bold mb-6 md:mb-8 text-center text-neutral">
             Fundacja Dać Wytchnienie
           </h1>
           <div class="max-w-3xl mx-auto text-center">
-            <p class="text-lg md:text-xl mb-6">
+            <p class="text-lg md:text-xl mb-6 text-neutral">
               Witamy na stronie Fundacji Dać Wytchnienie. Jesteśmy organizacją,
               która wspiera opiekunów osób niepełnosprawnych.
             </p>
@@ -152,45 +204,45 @@
               class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mt-8 md:mt-12">
               <a
                 href="#wolontariat"
-                class="bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow transform hover:-translate-y-1">
+                class="card p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow transform hover:-translate-y-1">
                 <div class="text-2xl mb-2">🤝</div>
-                <h3 class="text-lg md:text-xl font-semibold mb-2">
+                <h3 class="text-lg md:text-xl font-semibold mb-2 text-neutral">
                   Dołącz do zespołu wolontariuszy
                 </h3>
-                <p class="text-sm md:text-base text-gray-600">
+                <p class="text-sm md:text-base text-neutral">
                   Pomagaj i zmieniaj życie innych
                 </p>
               </a>
               <a
                 href="#dla-opiekunow"
-                class="bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow transform hover:-translate-y-1">
+                class="card p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow transform hover:-translate-y-1">
                 <div class="text-2xl mb-2">❤️</div>
-                <h3 class="text-lg md:text-xl font-semibold mb-2">
+                <h3 class="text-lg md:text-xl font-semibold mb-2 text-neutral">
                   Złóż wniosek o pomoc
                 </h3>
-                <p class="text-sm md:text-base text-gray-600">
+                <p class="text-sm md:text-base text-neutral">
                   Otrzymaj wsparcie w opiece
                 </p>
               </a>
               <a
                 href="#wolontariat"
-                class="bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow transform hover:-translate-y-1">
+                class="card p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow transform hover:-translate-y-1">
                 <div class="text-2xl mb-2">📄</div>
-                <h3 class="text-lg md:text-xl font-semibold mb-2">
+                <h3 class="text-lg md:text-xl font-semibold mb-2 text-neutral">
                   Pobierz formularz zgłoszeniowy
                 </h3>
-                <p class="text-sm md:text-base text-gray-600">
+                <p class="text-sm md:text-base text-neutral">
                   Rozpocznij współpracę z nami
                 </p>
               </a>
               <a
                 href="#kontakt"
-                class="bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow transform hover:-translate-y-1">
+                class="card p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow transform hover:-translate-y-1">
                 <div class="text-2xl mb-2">💬</div>
-                <h3 class="text-lg md:text-xl font-semibold mb-2">
+                <h3 class="text-lg md:text-xl font-semibold mb-2 text-neutral">
                   Skontaktuj się z nami
                 </h3>
-                <p class="text-sm md:text-base text-gray-600">
+                <p class="text-sm md:text-base text-neutral">
                   Odpowiemy na Twoje pytania
                 </p>
               </a>
