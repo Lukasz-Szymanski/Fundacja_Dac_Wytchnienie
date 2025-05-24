@@ -1,12 +1,36 @@
 document.addEventListener("DOMContentLoaded", () => {
   const contentDiv = document.getElementById("content");
 
+  // Add loading state
+  function showLoading() {
+    contentDiv.innerHTML = `
+      <div class="flex justify-center items-center py-16">
+        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+      </div>
+    `;
+  }
+
+  // Add smooth transition between sections
+  function fadeOut() {
+    contentDiv.style.opacity = "0";
+    contentDiv.style.transition = "opacity 0.3s ease-out";
+  }
+
+  function fadeIn() {
+    contentDiv.style.opacity = "1";
+    contentDiv.style.transition = "opacity 0.3s ease-in";
+  }
+
   // Mobile menu functionality
   const mobileMenuButton = document.getElementById("mobile-menu-button");
   const navMenu = document.getElementById("nav-menu");
 
   mobileMenuButton.addEventListener("click", function () {
     navMenu.classList.toggle("hidden");
+    // Add animation for mobile menu
+    if (!navMenu.classList.contains("hidden")) {
+      navMenu.style.animation = "slideDown 0.3s ease-out";
+    }
   });
 
   // Close mobile menu when clicking outside
@@ -27,12 +51,40 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // Handle active navigation state
+  function updateActiveNav(sectionId) {
+    const navLinks = document.querySelectorAll("nav a");
+    navLinks.forEach((link) => {
+      link.classList.remove("text-blue-600", "font-semibold");
+      link.classList.add("text-gray-700");
+    });
+    const activeLink = document.querySelector(`a[href="#${sectionId}"]`);
+    if (activeLink) {
+      activeLink.classList.remove("text-gray-700");
+      activeLink.classList.add("text-blue-600", "font-semibold");
+    }
+  }
+
   // Funkcja do ładowania zawartości
   function loadContent(sectionId) {
     const template = document.getElementById(`${sectionId}-template`);
     if (template) {
-      contentDiv.innerHTML = "";
-      contentDiv.appendChild(template.content.cloneNode(true));
+      fadeOut();
+      setTimeout(() => {
+        showLoading();
+        setTimeout(() => {
+          contentDiv.innerHTML = "";
+          contentDiv.appendChild(template.content.cloneNode(true));
+          updateActiveNav(sectionId);
+          fadeIn();
+
+          // Scroll to top smoothly
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        }, 300);
+      }, 300);
     }
   }
 
@@ -55,6 +107,13 @@ document.addEventListener("DOMContentLoaded", () => {
       loadContent(e.state.section);
     } else {
       loadContent("home");
+    }
+  });
+
+  // Add keyboard navigation
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      navMenu.classList.add("hidden");
     }
   });
 

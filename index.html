@@ -3,7 +3,65 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Fundacja Dać Wytchnienie - wspieramy opiekunów osób niepełnosprawnych" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .nav-link {
+        position: relative;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        background-color: #2563eb;
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .nav-link.active::after {
+        width: 100%;
+      }
+
+      /* Smooth transitions for all interactive elements */
+      a,
+      button {
+        transition: all 0.3s ease;
+      }
+
+      /* Focus styles for better accessibility */
+      a:focus,
+      button:focus {
+        outline: 2px solid #2563eb;
+        outline-offset: 2px;
+      }
+
+      /* Loading animation */
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
     <title>Fundacja Dać Wytchnienie</title>
   </head>
   <body class="bg-gray-50">
@@ -12,53 +70,59 @@
         <!-- Mobile menu button -->
         <button
           id="mobile-menu-button"
-          class="md:hidden w-full text-left px-4 py-2 text-gray-700 hover:text-blue-600 transition-colors">
+          class="md:hidden w-full text-left px-4 py-2 text-gray-700 hover:text-blue-600 transition-colors"
+          aria-label="Menu"
+          aria-expanded="false"
+          aria-controls="nav-menu">
           <span class="text-xl">☰</span> Menu
         </button>
 
         <!-- Navigation menu -->
         <ul
           id="nav-menu"
-          class="hidden md:flex flex-wrap justify-center gap-6 text-lg">
+          class="hidden md:flex flex-wrap justify-center gap-6 text-lg"
+          role="navigation"
+          aria-label="Menu główne">
           <li>
             <a
               href="#home"
-              class="block py-2 text-gray-700 hover:text-blue-600 transition-colors"
+              class="nav-link block py-2 text-gray-700 hover:text-blue-600 transition-colors"
+              aria-current="page"
               >Strona główna</a
             >
           </li>
           <li>
             <a
               href="#o-nas"
-              class="block py-2 text-gray-700 hover:text-blue-600 transition-colors"
+              class="nav-link block py-2 text-gray-700 hover:text-blue-600 transition-colors"
               >O nas</a
             >
           </li>
           <li>
             <a
               href="#nasza-misja"
-              class="block py-2 text-gray-700 hover:text-blue-600 transition-colors"
+              class="nav-link block py-2 text-gray-700 hover:text-blue-600 transition-colors"
               >Nasza misja</a
             >
           </li>
           <li>
             <a
               href="#wolontariat"
-              class="block py-2 text-gray-700 hover:text-blue-600 transition-colors"
+              class="nav-link block py-2 text-gray-700 hover:text-blue-600 transition-colors"
               >Zostań wolontariuszem</a
             >
           </li>
           <li>
             <a
               href="#dla-opiekunow"
-              class="block py-2 text-gray-700 hover:text-blue-600 transition-colors"
+              class="nav-link block py-2 text-gray-700 hover:text-blue-600 transition-colors"
               >Dla opiekunów</a
             >
           </li>
           <li>
             <a
               href="#kontakt"
-              class="block py-2 text-gray-700 hover:text-blue-600 transition-colors"
+              class="nav-link block py-2 text-gray-700 hover:text-blue-600 transition-colors"
               >Kontakt</a
             >
           </li>
@@ -88,7 +152,7 @@
               class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mt-8 md:mt-12">
               <a
                 href="#wolontariat"
-                class="bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                class="bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow transform hover:-translate-y-1">
                 <div class="text-2xl mb-2">🤝</div>
                 <h3 class="text-lg md:text-xl font-semibold mb-2">
                   Dołącz do zespołu wolontariuszy
@@ -99,7 +163,7 @@
               </a>
               <a
                 href="#dla-opiekunow"
-                class="bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                class="bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow transform hover:-translate-y-1">
                 <div class="text-2xl mb-2">❤️</div>
                 <h3 class="text-lg md:text-xl font-semibold mb-2">
                   Złóż wniosek o pomoc
@@ -110,7 +174,7 @@
               </a>
               <a
                 href="#wolontariat"
-                class="bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                class="bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow transform hover:-translate-y-1">
                 <div class="text-2xl mb-2">📄</div>
                 <h3 class="text-lg md:text-xl font-semibold mb-2">
                   Pobierz formularz zgłoszeniowy
@@ -121,7 +185,7 @@
               </a>
               <a
                 href="#kontakt"
-                class="bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                class="bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow transform hover:-translate-y-1">
                 <div class="text-2xl mb-2">💬</div>
                 <h3 class="text-lg md:text-xl font-semibold mb-2">
                   Skontaktuj się z nami
@@ -137,7 +201,7 @@
     </template>
 
     <template id="o-nas-template">
-      <section class="py-8 md:py-16 px-4 bg-white">
+      <section class="py-8 md:py-16 px-4">
         <div class="container mx-auto max-w-3xl">
           <h2 class="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-center">
             O nas
@@ -187,7 +251,7 @@
     </template>
 
     <template id="wolontariat-template">
-      <section class="py-8 md:py-16 px-4 bg-white">
+      <section class="py-8 md:py-16 px-4">
         <div class="container mx-auto max-w-3xl">
           <h2 class="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-center">
             Zostań Wolontariuszem
@@ -269,7 +333,7 @@
     </template>
 
     <template id="kontakt-template">
-      <section class="py-8 md:py-16 px-4 bg-white">
+      <section class="py-8 md:py-16 px-4">
         <div class="container mx-auto max-w-3xl">
           <h2 class="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-center">
             Kontakt
