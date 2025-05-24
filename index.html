@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Fundacja Dać Wytchnienie</title>
+  </head>
+  <body class="bg-gray-50">
+    <header class="bg-white shadow-md fixed w-full top-0 z-50">
+      <nav class="container mx-auto px-4 py-4">
+        <ul class="flex flex-wrap justify-center gap-6 text-lg">
+          <li>
+            <a
+              href="#home"
+              class="text-gray-700 hover:text-blue-600 transition-colors"
+              >Strona główna</a
+            >
+          </li>
+          <li>
+            <a
+              href="#o-nas"
+              class="text-gray-700 hover:text-blue-600 transition-colors"
+              >O nas</a
+            >
+          </li>
+          <li>
+            <a
+              href="#nasza-misja"
+              class="text-gray-700 hover:text-blue-600 transition-colors"
+              >Nasza misja</a
+            >
+          </li>
+          <li>
+            <a
+              href="#wolontariat"
+              class="text-gray-700 hover:text-blue-600 transition-colors"
+              >Zostań wolontariuszem</a
+            >
+          </li>
+          <li>
+            <a
+              href="#dla-opiekunow"
+              class="text-gray-700 hover:text-blue-600 transition-colors"
+              >Dla opiekunów</a
+            >
+          </li>
+          <li>
+            <a
+              href="#kontakt"
+              class="text-gray-700 hover:text-blue-600 transition-colors"
+              >Kontakt</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="pt-20">
+      <div id="content" class="py-16">
+        <!-- Tutaj będzie dynamicznie ładowana zawartość -->
+      </div>
+    </main>
+
+    <!-- Szablony sekcji -->
+    <template id="home-template">
+      <section class="py-16 px-4">
+        <div class="container mx-auto">
+          <h1 class="text-4xl font-bold mb-8 text-center">
+            Fundacja Dać Wytchnienie
+          </h1>
+          <div class="max-w-3xl mx-auto text-center">
+            <p class="text-xl mb-6">
+              Witamy na stronie Fundacji Dać Wytchnienie. Jesteśmy organizacją,
+              która wspiera opiekunów osób niepełnosprawnych.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+              <a
+                href="#wolontariat"
+                class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                <div class="text-2xl mb-2">🤝</div>
+                <h3 class="text-xl font-semibold mb-2">
+                  Dołącz do zespołu wolontariuszy
+                </h3>
+                <p class="text-gray-600">Pomagaj i zmieniaj życie innych</p>
+              </a>
+              <a
+                href="#dla-opiekunow"
+                class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                <div class="text-2xl mb-2">❤️</div>
+                <h3 class="text-xl font-semibold mb-2">Złóż wniosek o pomoc</h3>
+                <p class="text-gray-600">Otrzymaj wsparcie w opiece</p>
+              </a>
+              <a
+                href="#wolontariat"
+                class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                <div class="text-2xl mb-2">📄</div>
+                <h3 class="text-xl font-semibold mb-2">
+                  Pobierz formularz zgłoszeniowy
+                </h3>
+                <p class="text-gray-600">Rozpocznij współpracę z nami</p>
+              </a>
+              <a
+                href="#kontakt"
+                class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                <div class="text-2xl mb-2">💬</div>
+                <h3 class="text-xl font-semibold mb-2">
+                  Skontaktuj się z nami
+                </h3>
+                <p class="text-gray-600">Odpowiemy na Twoje pytania</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </template>
+
+    <template id="o-nas-template">
+      <section class="py-16 px-4 bg-white">
+        <div class="container mx-auto max-w-3xl">
+          <h2 class="text-3xl font-bold mb-8 text-center">O nas</h2>
+          <div class="space-y-6">
+            <h3 class="text-2xl font-semibold text-center">
+              Dać Wytchnienie – wspieramy tych, którzy wspierają
+            </h3>
+            <p class="text-lg">
+              Fundacja „Dać Wytchnienie" powstała z potrzeby serca – by
+              odciążyć, wesprzeć i dać chwilę oddechu tym, którzy na co dzień
+              opiekują się osobami niesamodzielnymi.
+            </p>
+            <p class="text-lg">
+              Działamy w obszarze wolontariatu wytchnieniowego, łącząc
+              wolontariuszy z rodzinami i opiekunami, którzy potrzebują choć
+              odrobiny czasu dla siebie. Pomagamy z troską, profesjonalizmem i
+              pełnym zaangażowaniem.
+            </p>
+          </div>
+        </div>
+      </section>
+    </template>
+
+    <template id="nasza-misja-template">
+      <section class="py-16 px-4">
+        <div class="container mx-auto max-w-3xl">
+          <h2 class="text-3xl font-bold mb-8 text-center">Nasza misja</h2>
+          <div class="space-y-6">
+            <h3 class="text-2xl font-semibold text-center">
+              Wytchnienie to nie luksus – to konieczność
+            </h3>
+            <p class="text-lg">
+              Celem Fundacji „Dać Wytchnienie" jest wspieranie rodzin, opiekunów
+              i osób w trudnej sytuacji życiowej poprzez czasowe odciążenie ich
+              z obowiązków opiekuńczych.
+            </p>
+            <p class="text-lg">
+              Budujemy społeczność zaufanych wolontariuszy, którzy przynoszą nie
+              tylko pomoc, ale i nadzieję.
+            </p>
+          </div>
+        </div>
+      </section>
+    </template>
+
+    <template id="wolontariat-template">
+      <section class="py-16 px-4 bg-white">
+        <div class="container mx-auto max-w-3xl">
+          <h2 class="text-3xl font-bold mb-8 text-center">
+            Zostań Wolontariuszem
+          </h2>
+          <div class="space-y-6">
+            <h3 class="text-2xl font-semibold text-center">
+              Masz serce do pomocy? Dołącz do nas!
+            </h3>
+            <p class="text-lg">
+              Jeden dzień Twojej pomocy może zmienić czyjeś życie.
+            </p>
+            <p class="text-lg">
+              Jeśli masz czas, empatię i chcesz zrobić coś dobrego – zostań
+              wolontariuszem wytchnieniowym. Oferujemy wsparcie, szkolenia i
+              opiekę koordynatora. Ty dajesz swój czas – my dajemy sens.
+            </p>
+            <div class="mt-8 space-y-4">
+              <a
+                href="#"
+                class="block p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors">
+                • Formularz zgłoszeniowy
+              </a>
+              <a
+                href="#"
+                class="block p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors">
+                • FAQ dla wolontariuszy
+              </a>
+              <a
+                href="#"
+                class="block p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors">
+                • Pobierz umowę wolontariacką
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </template>
+
+    <template id="dla-opiekunow-template">
+      <section class="py-16 px-4">
+        <div class="container mx-auto max-w-3xl">
+          <h2 class="text-3xl font-bold mb-8 text-center">Dla opiekunów</h2>
+          <div class="space-y-6">
+            <h3 class="text-2xl font-semibold text-center">
+              Potrzebujesz chwili wytchnienia?
+            </h3>
+            <p class="text-lg">
+              Jeśli opiekujesz się osobą chorą, niesamodzielną lub z
+              niepełnosprawnością – jesteś bohaterem. Ale nawet bohaterowie
+              potrzebują odpoczynku.
+            </p>
+            <p class="text-lg">
+              Zgłoś się do naszej fundacji. Zapewnimy Ci pomoc wolontariusza,
+              który wesprze Cię w codziennych obowiązkach, dając Ci czas na
+              regenerację.
+            </p>
+            <div class="mt-8 space-y-4">
+              <a
+                href="#"
+                class="block p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors">
+                • Jak uzyskać pomoc
+              </a>
+              <a
+                href="#"
+                class="block p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors">
+                • Opinie rodzin
+              </a>
+              <a
+                href="#"
+                class="block p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors">
+                • Zakres wsparcia
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </template>
+
+    <template id="kontakt-template">
+      <section class="py-16 px-4 bg-white">
+        <div class="container mx-auto max-w-3xl">
+          <h2 class="text-3xl font-bold mb-8 text-center">Kontakt</h2>
+          <div class="space-y-6">
+            <h3 class="text-2xl font-semibold text-center">
+              Fundacja „Dać Wytchnienie"
+            </h3>
+            <div class="space-y-4 text-lg">
+              <p class="flex items-center gap-2">
+                <span class="text-2xl">📞</span>
+                <span>……………</span>
+              </p>
+              <p class="flex items-center gap-2">
+                <span class="text-2xl">📬</span>
+                <a
+                  href="mailto:kontakt@dacywytchnienie.pl"
+                  class="text-blue-600 hover:underline"
+                  >kontakt@dacywytchnienie.pl</a
+                >
+              </p>
+              <p class="flex items-center gap-2">
+                <span class="text-2xl">🕒</span>
+                <span>Godziny kontaktu: pon.–pt. 9:00–16:00</span>
+              </p>
+              <p class="flex items-center gap-2">
+                <span class="text-2xl">📣</span>
+                <span>Śledź nas w mediach społecznościowych</span>
+              </p>
+            </div>
+            <div class="flex justify-center gap-4 mt-6">
+              <a href="#" class="text-2xl hover:text-blue-600 transition-colors"
+                >🔗</a
+              >
+              <a href="#" class="text-2xl hover:text-blue-600 transition-colors"
+                >🔗</a
+              >
+              <a href="#" class="text-2xl hover:text-blue-600 transition-colors"
+                >🔗</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
