@@ -99,14 +99,47 @@ document.addEventListener("DOMContentLoaded", () => {
   // Handle navigation
   const navLinks = document.querySelectorAll("nav a");
 
-  // Delegacja zdarzeń dla wszystkich linków z hashem
+  // Funkcja do obsługi kliknięć w linki
   document.addEventListener("click", function (e) {
-    const link = e.target.closest("a[href^='#']");
-    if (link) {
-      e.preventDefault();
-      const sectionId = link.getAttribute("href").substring(1);
-      loadContent(sectionId);
-      history.pushState({ section: sectionId }, "", link.getAttribute("href"));
+    // Sprawdź, czy kliknięto link
+    if (e.target.tagName === "A") {
+      const href = e.target.getAttribute("href");
+      // Sprawdź, czy link prowadzi do sekcji (zaczyna się od #)
+      if (href && href.startsWith("#")) {
+        // Pobierz ID sekcji z href
+        const sectionId = href.substring(1);
+        console.log("Kliknięto link do sekcji:", sectionId);
+        console.log(
+          "Znaleziony template:",
+          document.getElementById(`${sectionId}-template`)
+        );
+
+        // Znajdź odpowiedni template
+        const template = document.getElementById(`${sectionId}-template`);
+        if (template) {
+          // Załaduj zawartość
+          loadContent(sectionId);
+
+          // Zamknij menu mobilne
+          const mobileMenu = document.getElementById("nav-menu");
+          const mobileMenuButton =
+            document.getElementById("mobile-menu-button");
+          if (mobileMenu && mobileMenuButton) {
+            mobileMenu.classList.add("hidden");
+            mobileMenuButton.setAttribute("aria-expanded", "false");
+          }
+
+          // Aktualizuj URL
+          history.pushState(null, "", href);
+
+          // Pokaż płynne przejście
+          const content = document.getElementById("content");
+          content.style.opacity = "0";
+          setTimeout(() => {
+            content.style.opacity = "1";
+          }, 50);
+        }
+      }
     }
   });
 
