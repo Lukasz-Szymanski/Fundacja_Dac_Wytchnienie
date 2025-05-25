@@ -78,11 +78,19 @@ document.addEventListener("DOMContentLoaded", () => {
           updateActiveNav(sectionId);
           fadeIn();
 
-          // Scroll to top smoothly
-          window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-          });
+          // Jeśli to sekcja kontaktowa, przewiń do niej
+          if (sectionId === "kontakt") {
+            const kontaktSection = contentDiv.querySelector("section");
+            if (kontaktSection) {
+              kontaktSection.scrollIntoView({ behavior: "smooth" });
+            }
+          } else {
+            // Dla innych sekcji przewiń do góry
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            });
+          }
         }, 300);
       }, 300);
     }
@@ -91,14 +99,15 @@ document.addEventListener("DOMContentLoaded", () => {
   // Handle navigation
   const navLinks = document.querySelectorAll("nav a");
 
-  // Handle navigation clicks
-  navLinks.forEach((link) => {
-    link.addEventListener("click", function (e) {
+  // Delegacja zdarzeń dla wszystkich linków z hashem
+  document.addEventListener("click", function (e) {
+    const link = e.target.closest("a[href^='#']");
+    if (link) {
       e.preventDefault();
-      const sectionId = this.getAttribute("href").substring(1);
+      const sectionId = link.getAttribute("href").substring(1);
       loadContent(sectionId);
-      history.pushState({ section: sectionId }, "", this.getAttribute("href"));
-    });
+      history.pushState({ section: sectionId }, "", link.getAttribute("href"));
+    }
   });
 
   // Handle browser back/forward buttons
