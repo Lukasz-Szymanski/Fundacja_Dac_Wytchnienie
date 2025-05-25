@@ -3,9 +3,116 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Podstawowe meta tagi -->
+    <title>
+      Fundacja Dać Wytchnienie | Wsparcie dla opiekunów osób niepełnosprawnych
+    </title>
     <meta
       name="description"
-      content="Fundacja Dać Wytchnienie - wspieramy opiekunów osób niepełnosprawnych" />
+      content="Fundacja Dać Wytchnienie wspiera opiekunów osób niepełnosprawnych, oferując pomoc wolontariuszy i chwilę odpoczynku. Dołącz do nas i pomagaj!" />
+    <meta
+      name="keywords"
+      content="fundacja, opiekunowie, niepełnosprawni, wolontariat, wsparcie, pomoc, wytchnienie, opieka" />
+    <meta name="author" content="Fundacja Dać Wytchnienie" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="Polish" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="generator" content="Fundacja Dać Wytchnienie" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://dacwytchnienie.pl/" />
+    <meta
+      property="og:title"
+      content="Fundacja Dać Wytchnienie | Wsparcie dla opiekunów" />
+    <meta
+      property="og:description"
+      content="Wspieramy opiekunów osób niepełnosprawnych, dając im chwilę wytchnienia. Dołącz do nas i pomagaj!" />
+    <meta
+      property="og:image"
+      content="https://dacwytchnienie.pl/images/og-image.jpg" />
+    <meta property="og:site_name" content="Fundacja Dać Wytchnienie" />
+    <meta property="og:locale" content="pl_PL" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://dacwytchnienie.pl/" />
+    <meta
+      name="twitter:title"
+      content="Fundacja Dać Wytchnienie | Wsparcie dla opiekunów" />
+    <meta
+      name="twitter:description"
+      content="Wspieramy opiekunów osób niepełnosprawnych, dając im chwilę wytchnienia. Dołącz do nas i pomagaj!" />
+    <meta
+      name="twitter:image"
+      content="https://dacwytchnienie.pl/images/twitter-image.jpg" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://dacwytchnienie.pl/" />
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#377d71" />
+    <meta name="msapplication-TileColor" content="#377d71" />
+    <meta name="theme-color" content="#377d71" />
+
+    <!-- Dodatkowe meta tagi dla SEO -->
+    <meta name="geo.region" content="PL" />
+    <meta name="geo.placename" content="Warszawa" />
+    <meta name="geo.position" content="52.2297;21.0122" />
+    <meta name="ICBM" content="52.2297, 21.0122" />
+
+    <!-- Schema.org markup dla Google -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NonprofitOrganization",
+        "name": "Fundacja Dać Wytchnienie",
+        "url": "https://dacwytchnienie.pl",
+        "logo": "https://dacwytchnienie.pl/images/logo.png",
+        "description": "Fundacja wspierająca opiekunów osób niepełnosprawnych poprzez wolontariat wytchnieniowy.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "ul. Przykładowa 123",
+          "addressLocality": "Warszawa",
+          "postalCode": "00-000",
+          "addressCountry": "PL"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+48-123-456-789",
+          "contactType": "customer service",
+          "email": "kontakt@dacwytchnienie.pl",
+          "availableLanguage": ["Polish"]
+        },
+        "sameAs": [
+          "https://www.facebook.com/profile.php?id=61560719912345",
+          "https://www.instagram.com/fundacja_dac_wytchnienie/",
+          "https://www.linkedin.com/company/fundacja-dać-wytchnienie/"
+        ]
+      }
+    </script>
+
+    <!-- Dodatkowe meta tagi dla social media -->
+    <meta
+      property="article:publisher"
+      content="https://www.facebook.com/profile.php?id=61560719912345" />
+    <meta
+      property="article:author"
+      content="https://www.facebook.com/profile.php?id=61560719912345" />
+    <meta name="twitter:creator" content="@DacWytchnienie" />
+    <meta name="twitter:site" content="@DacWytchnienie" />
+
+    <!-- Preconnect do zewnętrznych zasobów -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Reszta istniejących tagów -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
       @keyframes slideDown {
@@ -113,7 +220,6 @@
         color: white;
       }
     </style>
-    <title>Fundacja Dać Wytchnienie</title>
   </head>
   <body class="bg-white min-h-screen">
     <header class="fixed w-full top-0 z-50 header-blur">
